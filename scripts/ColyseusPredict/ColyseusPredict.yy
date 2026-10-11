@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ColyseusPredict",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ColyseusPredict",
+  "parent":{
+    "name":"Test_servidor",
+    "path":"folders/Test_servidor.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
