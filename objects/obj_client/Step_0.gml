@@ -12,15 +12,12 @@ if (client == 0) {
 
 colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	// Verificamos si el mensaje recibido es de tipo "anuncio"
-	if (_type == "anuncio") {
-		//show_message("Servidor dice: " + string(_data.mensaje));
-	}
-	
 	if (_type == "player_connected") {
 		if (_data.username != global.user.username){
-			show_message("Jugador conectado");
+			//show_message("Jugador conectado");
 			var _npc = instance_create_layer(100,100,"Instances",obj_npc)
-			array_push(user_names,_data.username)
+			_npc.username = _data.username
+			array_push(user_names,_npc)
 			_npc.x = _data.x
 			_npc.y = _data.y
 		}
@@ -30,6 +27,21 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		var _player = instance_create_layer(100,100,"Instances",obj_player)
 		_player.x = _data.x
 		_player.y = _data.y
+	}
+	
+	if (_type == "newPositionPlayer"){
+		var _npc = undefined
+		for (i=0;i<array_length(user_names);i++){
+			show_debug_message(user_names[i])
+			if (user_names[i]==_data.username){
+				_npc = array_get(user_names,i)
+				i = array_length(user_names)
+			}
+		}
+		if _npc != undefined{
+			_npc.x = _data.x
+			_npc.y = _data.y
+		}
 	}
 
 	if (_type == "newX") {

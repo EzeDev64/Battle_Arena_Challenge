@@ -8,3 +8,7 @@ observer = false;
 
 #region multiplayer test
 user_names = []
+
+function user_move(_username,_x,_y){
+	colyseus_send(net_room, "move", {x: _x, y: _y,username: _username});
+}

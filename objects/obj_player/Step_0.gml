@@ -16,3 +16,5 @@ if (keyboard_check(vk_down)){
 
 x += vel*positionX
 y += vel*positionY
+
+obj_client.user_move(user_name,x,y)
