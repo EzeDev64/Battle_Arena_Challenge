@@ -3,7 +3,7 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
  
-    client = colyseus_client_create("http://localhost:2567");
+    client = colyseus_client_create("http://192.168.100.97:2567");
 	
 	var _options = "{ \"username\": \""+global.user.username+"\" }";
     net_room = colyseus_client_join_or_create(client, "test_server_room", _options);
@@ -30,17 +30,19 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	}
 	
 	if (_type == "newPositionPlayer"){
-		var _npc = undefined
-		for (i=0;i<array_length(user_names);i++){
-			show_debug_message(user_names[i])
-			if (user_names[i]==_data.username){
-				_npc = array_get(user_names,i)
-				i = array_length(user_names)
+		if (_data.username != global.user.username){
+			var _npc = undefined
+			for (i=0;i<array_length(user_names);i++){
+				if (user_names[i].username==_data.username){
+					_npc = array_get(user_names,i)
+					i = array_length(user_names)
+				}
 			}
-		}
-		if _npc != undefined{
-			_npc.x = _data.x
-			_npc.y = _data.y
+			show_debug_message(_npc)
+			if _npc != undefined{
+				_npc.x = _data.x
+				_npc.y = _data.y
+			}
 		}
 	}
 
