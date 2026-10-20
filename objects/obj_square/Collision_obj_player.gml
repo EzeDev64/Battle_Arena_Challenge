@@ -1,2 +1,2 @@
-obj_client.observer = true
+obj_client.get_resource()
 instance_destroy()
