@@ -10,7 +10,7 @@ if (campo_activo == "correo") {
         }
     }
     else if (keyboard_check_pressed(vk_enter)) {
-        campo_activo = "contrasena";
+        campo_activo = "usuario";
     }
     else {
         var tecla = keyboard_lastchar;
@@ -20,6 +20,28 @@ if (campo_activo == "correo") {
             correo_registro += tecla;
         }
     }
+}
+else if (campo_activo == "usuario"){
+	if (keyboard_check_pressed(vk_backspace)) {
+        if (string_length(usuario_registro) > 0) {
+            usuario_registro = string_delete(
+                usuario_registro,
+                string_length(usuario_registro),
+                1
+            );
+        }
+    }
+    else if (keyboard_check_pressed(vk_enter)) {
+         campo_activo = "usuario";
+    }
+    else {
+        var tecla = keyboard_lastchar;
+
+        if (string_length(tecla) == 1 &&
+            string_length(usuario_registro) < 40) {
+            usuario_registro += tecla;
+        }
+    }		
 }
 else if (campo_activo == "contrasena") {
 
@@ -43,4 +65,8 @@ else if (campo_activo == "contrasena") {
             contrasena_registro += tecla;
         }
     }
+}
+
+if (keyboard_lastchar != "") {
+    keyboard_lastchar = "";
 }

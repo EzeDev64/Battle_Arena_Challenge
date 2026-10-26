@@ -23,6 +23,7 @@ function game_start(){
 //Si el jugador se mueve
 function user_move(_username,_x,_y){
 	if (colyseus_room_is_connected(net_room)) {
+		show_debug_message("Me estoy moviendo")
 		colyseus_send(net_room, "move", {x: _x, y: _y,username: _username});
 	}
 }

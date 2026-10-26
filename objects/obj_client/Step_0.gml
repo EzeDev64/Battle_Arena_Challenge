@@ -3,7 +3,7 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
     client = colyseus_client_create("http://192.168.100.97:2567");
-	var _options = "{ \"username\": \""+global.user.username+"\" }";
+	var _options = "{ \"username\": \""+global.user.username+"\"}";
     net_room = colyseus_client_join_or_create(client,room_lst[global.actual_room], _options);
 }
 
@@ -64,16 +64,16 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	#region login and sign-in
 	//Cuando el usuario ya existe
 	if (_type=="user already exists"){
-		show_message("Usuario ya registrado salga de la aplicación e intentelo nuevamente")
-		game_end()
+		show_debug_message("Usuario ya registrado salga de la aplicación e intentelo nuevamente")
 	}
 	
 	//Cuando se logra el inicio de sesión
 	if (_type=="login succesfully"){
 		show_message("Inicio de sesión exitoso")
 		global.actual_room = 1
-		//alarm_set(3,90)
-		room_goto(test_server_room)
+		alarm_set(3,90)
+		//room_goto(Room_Lobby)
+		room_goto(Room1)
 	}
 	
 	//Al recibir el código para la verificación.

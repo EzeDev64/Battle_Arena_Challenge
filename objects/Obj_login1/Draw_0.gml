@@ -13,10 +13,6 @@ if (pantalla == "recuperar") {
     draw_text(600, 190, "RECUPERAR CONTRASENA");
 }
 
-// Texto correo
-draw_set_color(c_white);
-draw_text(600, 230, "Correo electronico");
-
 // Campo correo
 draw_set_color((campo_activo == "correo") ? azul : c_white);
 draw_roundrect_ext(350, 250, 850, 300,8,8, false);
@@ -26,6 +22,10 @@ draw_set_halign(fa_left);
 draw_text(365, 275, correo + ((campo_activo == "correo") ? cursor : ""));
 
 if (pantalla == "login") {
+	// Texto correo
+	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_text(600, 230, "Usuario");
 
     // Texto contrasena
     draw_set_halign(fa_center);
@@ -61,7 +61,10 @@ if (pantalla == "login") {
     draw_text(600, 610, mensaje);
 }
 else {
-
+	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_text(600, 230, "Correo electrónico");
+	
     // Texto codigo
     draw_set_halign(fa_center);
     draw_set_color(c_white);

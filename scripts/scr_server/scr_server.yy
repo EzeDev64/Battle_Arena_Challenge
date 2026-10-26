@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_serverTest",
+  "%Name":"scr_server",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_serverTest",
+  "name":"scr_server",
   "parent":{
-    "name":"Test_servidor",
-    "path":"folders/Test_servidor.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
