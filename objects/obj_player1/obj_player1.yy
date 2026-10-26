@@ -9,8 +9,8 @@
   "name":"obj_player1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Jugadores_sprite",
-    "path":"folders/Game/Sprites_game/Jugadores_sprite.yy",
+    "name":"Objects_game",
+    "path":"folders/Game/Objects_game.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_1_down",
-    "path":"sprites/spr_player_1_down/spr_player_1_down.yy",
+    "name":"spr_player_1_down_idle",
+    "path":"sprites/spr_player_1_down_idle/spr_player_1_down_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,
