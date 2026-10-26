@@ -1,0 +1,10 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"Obj_Lobby","order":3,"path":"objects/Obj_Lobby/Obj_Lobby.yy",},
+    {"name":"Obj_login","order":1,"path":"objects/Obj_login/Obj_login.yy",},
+    {"name":"Obj_registro","order":5,"path":"objects/Obj_registro/Obj_registro.yy",},
+    {"name":"Room_Lobby","order":2,"path":"rooms/Room_Lobby/Room_Lobby.yy",},
+    {"name":"Room_Registro","order":4,"path":"rooms/Room_Registro/Room_Registro.yy",},
+  ],
+}
