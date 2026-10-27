@@ -18,34 +18,44 @@ draw_set_color(c_black);
 draw_set_halign(fa_left);
 draw_text(365, 265, correo_registro + ((campo_activo == "correo") ? cursor : ""));
 
-// Contrasena
+// Nombre de usuario
 draw_set_halign(fa_center);
 draw_set_color(c_white);
-draw_text(600, 302, "Contrasena");
-draw_set_color((campo_activo == "contrasena") ? azul : c_white);
-draw_roundrect_ext(350, 320, 850, 370,8,8, false);
+draw_text(600, 302, "Nombre de usuario");
+draw_set_color((campo_activo == "usuario") ? azul : c_white);
+draw_roundrect_ext(350, 320, 850, 370, 8, 8, false);
 draw_set_color(c_black);
 draw_set_halign(fa_left);
-draw_text(365, 345,
+draw_text(365, 345, usuario_registro + ((campo_activo == "usuario") ? cursor : ""));
+
+// Contrasena (Desplazada hacia abajo manteniendo la estructura)
+draw_set_halign(fa_center);
+draw_set_color(c_white);
+draw_text(600, 382, "Contrasena");
+draw_set_color((campo_activo == "contrasena") ? azul : c_white);
+draw_roundrect_ext(350, 400, 850, 450, 8, 8, false);
+draw_set_color(c_black);
+draw_set_halign(fa_left);
+draw_text(365, 425,
     string_repeat("*", string_length(contrasena_registro)) +
     ((campo_activo == "contrasena") ? cursor : "")
 );
 
-// Boton registrarse
+// Boton registrarse (Desplazado de forma segura)
 draw_set_color(azul);
-draw_roundrect_ext(450, 410, 750, 465,15,15, false);
+draw_roundrect_ext(450, 460, 750, 515, 15, 15, false);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(600, 437, "REGISTRARSE");
+draw_text(600, 490, "REGISTRARSE");
 
 // Mensaje
-draw_text(600, 510, mensaje_registro);
+draw_text(600, 545, mensaje_registro);
 
 // Boton volver al login
 draw_set_color(azul);
-draw_roundrect_ext(450, 540, 750, 595,15,15, false);
+draw_roundrect_ext(450, 575, 750, 630, 15, 15, false);
 draw_set_color(c_white);
-draw_text(600, 567, "VOLVER AL LOGIN");
+draw_text(600, 602, "VOLVER AL LOGIN");
 
 // Restaurar alineacion
 draw_set_halign(fa_left);

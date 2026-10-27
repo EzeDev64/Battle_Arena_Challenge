@@ -19,8 +19,11 @@ if (pantalla == "login") {
     // Iniciar sesion
     else if (mouse_x >= 450 && mouse_x <= 750 &&
              mouse_y >= 420 && mouse_y <= 475) {
-
-        intentar_login();
+		if state{
+			intentar_login();
+			state = false
+			alarm_set(0,60)
+		}
     }
 
     // Crear cuenta
@@ -79,7 +82,12 @@ else if (pantalla == "recuperar") {
             mensaje = "Ingresa un correo valido";
         }
         else {
-            mensaje = "Si el correo existe, te enviaremos un codigo";
+            mensaje = "Te enviaremos un codigo";
+			if state{
+				state = false
+				enviar_correo()
+				alarm_set(0,60)
+			}
         }
     }
 

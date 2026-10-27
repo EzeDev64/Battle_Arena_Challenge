@@ -27,3 +27,5 @@ if (positionX != 0 || positionY != 0) {
     else if (sprite_index == spr_player_1_up) sprite_index = spr_player_1_up_idle;
     else if (sprite_index == spr_player_1_down) sprite_index = spr_player_1_down_idle;
 }
+
+obj_client.user_move(user_name,x,y)

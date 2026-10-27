@@ -1,4 +1,4 @@
-user_name = "Player1";
+user_name = global.user.username;
 vel = 2;
 positionX = 0;
 positionY = 0;
