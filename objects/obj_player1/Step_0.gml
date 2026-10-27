@@ -3,6 +3,8 @@ positionX = keyboard_check(vk_right) - keyboard_check(vk_left);
 positionY = keyboard_check(vk_down) - keyboard_check(vk_up);
 
 // Desplazamiento en píxeles por frame
+vel = 2
+tilemap = layer_tilemap_get_id("Tiles_Col");
 var _dx = vel * positionX;
 var _dy = vel * positionY;
 
@@ -28,4 +30,5 @@ if (positionX != 0 || positionY != 0) {
     else if (sprite_index == spr_player_1_down) sprite_index = spr_player_1_down_idle;
 }
 
+user_name = global.user.username;
 obj_client.user_move(user_name,x,y)
