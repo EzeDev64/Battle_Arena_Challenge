@@ -53,3 +53,9 @@ function get_resource(){
 		colyseus_send(net_room, "resource_adquiered",{});
 	}
 }
+
+function send_message(_msg,_contend){
+	if (colyseus_room_is_connected(net_room)) {
+		colyseus_send(net_room, _msg,_contend);
+	}		
+}

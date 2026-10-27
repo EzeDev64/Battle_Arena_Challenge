@@ -1,6 +1,7 @@
 function user(_username) constructor{
 	username =_username	
-	
+	password= ""
+	mail = ""
 }
 
 function resource(_index,_id) constructor{
