@@ -1,4 +1,4 @@
-mediator = instance_find(obj_game_mannager,0)
+mediator = instance_find(obj_IGU_mediator,0)
 
 text = ""
 focus = false

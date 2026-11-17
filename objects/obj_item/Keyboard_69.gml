@@ -40,7 +40,7 @@ if (place_meeting(x, y, obj_player)) {
                 //item_array[_pos][item_scale_y] = other.image_yscale;
             }
 			
-			 if (item_array[_pos][item_type] == item_resource and item_array[_pos][item_amount]>0) {
+			if (item_array[_pos][item_type] == item_resource and item_array[_pos][item_amount]>0) {
                 return
             }
             

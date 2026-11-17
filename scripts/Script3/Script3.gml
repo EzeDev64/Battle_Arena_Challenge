@@ -23,3 +23,19 @@ function define_spawns(){
 	}
 	show_debug_message(global.spawn_lst)
 }
+
+
+function resource(_index,_id) constructor{
+	index = _index
+	id = _id
+	function action(){}
+}
+
+function concreteCreator() constructor{
+	function createItem(){}
+}
+
+objectFactory =
+{
+    
+};

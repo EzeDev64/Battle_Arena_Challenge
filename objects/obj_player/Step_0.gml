@@ -3,7 +3,7 @@ positionX = keyboard_check(vk_right) - keyboard_check(vk_left);
 positionY = keyboard_check(vk_down) - keyboard_check(vk_up);
 
 // Desplazamiento en píxeles por frame
-vel = 2
+vel = 3.5
 tilemap = layer_tilemap_get_id("Tiles_Col");
 var _dx = vel * positionX * move_enabled;
 var _dy = vel * positionY * move_enabled;
@@ -23,6 +23,7 @@ if (positionX != 0 || positionY != 0) {
     else if (positionY < 0) sprite_index = spr_player_1_up;
     else if (positionX > 0) sprite_index = spr_player_1_right;
     else sprite_index = spr_player_1_left;
+	mediator.notify(id,"user_move")
 } else {
     if (sprite_index == spr_player_1_right) sprite_index = spr_player_1_right_idle;
     else if (sprite_index == spr_player_1_left) sprite_index = spr_player_1_left_idle;
@@ -31,4 +32,3 @@ if (positionX != 0 || positionY != 0) {
 }
 
 //user_name = global.user.username;
-//obj_client2.user_move(user_name,x,y)

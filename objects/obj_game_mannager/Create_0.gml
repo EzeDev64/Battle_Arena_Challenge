@@ -13,4 +13,8 @@ function notify(_compID= undefined, _event="", _data={}){
 		obj_player.points += _data.value
 		client.get_resource()
 	}
+	
+	if _event == "user_move"{
+		client.user_move(global.user,obj_player.x,obj_player.y)
+	}
 }

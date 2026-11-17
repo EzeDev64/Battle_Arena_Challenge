@@ -18,7 +18,7 @@
   "name":"RoomA",
   "parent":{
     "name":"test_persistent",
-    "path":"folders/Test_servidor/test_persistent.yy",
+    "path":"folders/Misc/test_persistent.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

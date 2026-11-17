@@ -9,8 +9,8 @@
   "name":"obj_npc",
   "overriddenProperties":[],
   "parent":{
-    "name":"spr_placeholders",
-    "path":"folders/spr_placeholders.yy",
+    "name":"Objects_game",
+    "path":"folders/Game/Objects_game.yy",
   },
   "parentObjectId":null,
   "persistent":false,

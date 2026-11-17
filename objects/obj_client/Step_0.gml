@@ -1,6 +1,9 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
-    client = colyseus_client_create("http://192.168.100.97:2567");
+	//Correr de forma local
+    //client = colyseus_client_create("ws://192.168.100.97:2567");
+	//Correr desde el server en Azure
+	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
@@ -28,7 +31,8 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	if (_type=="login succesfully"){
 		show_message("Inicio de sesión exitoso")
 		show_debug_message("En cola, esperando una partida...")
-		global.user = "Eze"
+		global.user = _data.username
+		//global.user = "Eze"
 		var _options = "{ \"username\": \""+global.user+"\"}";
 		colyseus_room_leave(_room);
 		net_room = colyseus_client_join_or_create(client, "queue", _options);
@@ -84,7 +88,7 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	
 	//Cuando otros jugadores  del servidor se mueven
 	if (_type == "newPositionPlayer"){
-		if (_data.username != global.user.username){
+		if (_data.username != global.user){
 			var _npc = undefined
 			for (i=0;i<array_length(user_names);i++){
 				if (user_names[i].username==_data.username){

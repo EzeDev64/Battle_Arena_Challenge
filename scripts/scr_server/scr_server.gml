@@ -3,12 +3,12 @@ function user(_username) constructor{
 	password= ""
 	mail = ""
 }
-
+/*
 function resource(_index,_id) constructor{
 	index = _index
 	id = _id
 }
-
+*/
 function search(_id){
 	for(i=0;i<array_length(global.resources);i++){
 		if _id == global.resources[i].index {

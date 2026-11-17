@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Test_servidor",
-    "path":"folders/Test_servidor.yy",
+    "path":"folders/Misc/Test_servidor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

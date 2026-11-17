@@ -6,8 +6,8 @@
   "name":"obj_spawn",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game",
-    "path":"folders/Game.yy",
+    "name":"Objects_game",
+    "path":"folders/Game/Objects_game.yy",
   },
   "parentObjectId":null,
   "persistent":false,
