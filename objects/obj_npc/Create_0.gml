@@ -1,5 +1,8 @@
 username = ""
 state = true
+depth = -999
+//image_xscale = 0.55
+//image_yscale = 0.55
 
 function move(_x,_y){
 	x = _x

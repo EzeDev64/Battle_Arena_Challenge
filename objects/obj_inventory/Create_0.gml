@@ -11,3 +11,6 @@ for (var i = 0; i < 5; i += 1) {
     item_array[i][item_sprite] = -1;
     item_array[i][item_amount] = 0;
 }
+
+//Agregados
+mediator = instance_find(obj_game_mannager,0)

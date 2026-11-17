@@ -1,0 +1,1 @@
+mediator = instance_find(obj_IGU_mediator,0)

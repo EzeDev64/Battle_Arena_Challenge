@@ -37,5 +37,5 @@ else if (mouse_x >= 450 && mouse_x <= 750 &&
 else if (mouse_x >= 450 && mouse_x <= 750 &&
          mouse_y >= 575 && mouse_y <= 630) {
 
-    room_goto(Room_login);
+    room_goto(Room_login2);
 }
