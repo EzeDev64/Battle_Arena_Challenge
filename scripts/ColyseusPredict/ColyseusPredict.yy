@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"ColyseusPredict",
   "parent":{
-    "name":"Test_servidor",
-    "path":"folders/Test_servidor.yy",
+    "name":"Server",
+    "path":"folders/Server.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

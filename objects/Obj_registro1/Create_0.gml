@@ -22,9 +22,9 @@ intentar_registro = function() {
     else {
 		//var _client = instance_create_depth(0,0,1,obj_client)
 		global.user.username = usuario_registro
-		obj_client.password = contrasena_registro;
-		obj_client.mail = correo_registro
-		obj_client.alarm[2] = 30
+		obj_client2.password = contrasena_registro;
+		obj_client2.mail = correo_registro
+		obj_client2.alarm[2] = 30
         mensaje_registro = "Cuenta creada correctamente";
     }
 };
