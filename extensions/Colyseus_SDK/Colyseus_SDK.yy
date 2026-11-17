@@ -764,8 +764,8 @@
   "optionsFile":"options.json",
   "packageId":"",
   "parent":{
-    "name":"Test_servidor",
-    "path":"folders/Test_servidor.yy",
+    "name":"Server",
+    "path":"folders/Server.yy",
   },
   "productId":"",
   "resourceType":"GMExtension",

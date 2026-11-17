@@ -30,7 +30,7 @@ if (pantalla == "login") {
     else if (mouse_x >= 400 && mouse_x <= 800 &&
              mouse_y >= 490 && mouse_y <= 530) {
 
-        room_goto(Room_Registro);
+        room_goto(Room_Registro2);
     }
 
     // Recuperar contrasena

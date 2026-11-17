@@ -1,0 +1,1 @@
+mediator = instance_find(obj_game_mannager,0)

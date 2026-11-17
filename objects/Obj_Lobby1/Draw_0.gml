@@ -10,7 +10,7 @@ draw_text(600, 180, "LOBBY");
 //Imprimir lista de jugadores
 var _dy = 230
 draw_text(600,200,$"Mi user:{global.user.username}")
-var _client = instance_create_depth(0,0,1,obj_client)
+var _client = instance_create_depth(0,0,1,obj_client2)
 //draw_text(0,15,$"Lista de usuarios conectados")
 for (i = 0;i<array_length(_client.user_names);i++){
 	draw_text(0,_dy,_client.user_names[i].username)

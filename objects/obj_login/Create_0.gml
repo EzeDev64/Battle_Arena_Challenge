@@ -21,15 +21,15 @@ intentar_login = function() {
     }else{
 		//var _client = instance_create_depth(0,0,1,obj_client)
 		global.user.username = correo
-		obj_client.alarm[0] = 30
-		obj_client.password = contrasena;
+		obj_client2.alarm[0] = 30
+		obj_client2.password = contrasena;
 	}
 };
 
 function enviar_correo(){
 	//var _client = instance_create_depth(0,0,1,obj_client)
-	obj_client.alarm[1] = 30
-	obj_client.mail = correo;	
+	obj_client2.alarm[1] = 30
+	obj_client2.mail = correo;	
 }
 
 // Cambia entre "login" y "recuperar" y limpia los campos

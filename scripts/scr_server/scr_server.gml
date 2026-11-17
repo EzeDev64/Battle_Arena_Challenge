@@ -19,8 +19,14 @@ function search(_id){
 	}
 }
 
-global.user = new user("Eze");
+//global.user = new user("Eze");
 global.actual_room = 0
 global.client = undefined;
 
 global.resources = []
+
+global.button_action = function(action){
+	if action == "login"{
+		show_message("LOGIN")
+	}
+}

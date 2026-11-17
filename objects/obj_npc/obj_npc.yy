@@ -9,8 +9,8 @@
   "name":"obj_npc",
   "overriddenProperties":[],
   "parent":{
-    "name":"Placeholders",
-    "path":"folders/Test_servidor/Placeholders.yy",
+    "name":"spr_placeholders",
+    "path":"folders/spr_placeholders.yy",
   },
   "parentObjectId":null,
   "persistent":false,

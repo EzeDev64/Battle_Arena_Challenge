@@ -6,7 +6,7 @@ if (item_array[item_pos][item_type] != item_none) {
     global.next_scale_y = item_array[item_pos][item_scale_y];
 
     item_array[item_pos][item_amount] -= 1;
-    var _inst = instance_create_layer(obj_player1.x, obj_player1.y, "Instances_1", obj_item);
+    var _inst = instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_item);
 
     if (item_array[item_pos][item_amount] < 1) {
         item_array[item_pos][item_type] = item_none;
