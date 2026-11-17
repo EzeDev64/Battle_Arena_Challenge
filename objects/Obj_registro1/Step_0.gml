@@ -28,7 +28,12 @@ if (campo_activo == "correo") {
     }
     correo_registro = keyboard_string;
 }
-else {
+else if (campo_activo == "usuario") {
+	 if (string_length(keyboard_string) > 80) {
+        keyboard_string = string_copy(keyboard_string, 1, 80);
+    }
+    usuario_registro = keyboard_string;
+}else{
     if (string_length(keyboard_string) > 40) {
         keyboard_string = string_copy(keyboard_string, 1, 40);
     }

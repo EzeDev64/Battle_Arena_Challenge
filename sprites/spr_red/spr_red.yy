@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Placeholders",
-    "path":"folders/Test_servidor/Placeholders.yy",
+    "name":"spr_placeholders",
+    "path":"folders/spr_placeholders.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

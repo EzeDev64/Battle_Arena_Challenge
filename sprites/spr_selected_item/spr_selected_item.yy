@@ -32,8 +32,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sprites_IGU",
-    "path":"folders/Interfaz de inicio/Sprites_IGU.yy",
+    "name":"Sprites_game",
+    "path":"folders/Game/Sprites_game/Sprites_game.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
