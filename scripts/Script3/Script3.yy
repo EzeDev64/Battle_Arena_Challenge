@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Script3",
   "parent":{
-    "name":"Objects_game",
-    "path":"folders/Game/Objects_game.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

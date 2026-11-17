@@ -13,8 +13,8 @@
   "name":"Obj_registro1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos_IGU",
-    "path":"folders/Interfaz de inicio/Objetos_IGU.yy",
+    "name":"Misc",
+    "path":"folders/Misc.yy",
   },
   "parentObjectId":null,
   "persistent":false,
