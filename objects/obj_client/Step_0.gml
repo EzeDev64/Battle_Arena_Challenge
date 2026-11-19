@@ -1,9 +1,9 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
 	//Correr de forma local
-    //client = colyseus_client_create("ws://192.168.100.97:2567");
+    client = colyseus_client_create("ws://192.168.100.97:2567");
 	//Correr desde el server en Azure
-	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
+	//client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
