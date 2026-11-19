@@ -11,10 +11,13 @@ pool:
   name: Default
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: PowerShell@2
+  displayName: 'Validar integridad del proyecto GameMaker (.yyp)'
+  inputs:
+    filePath: 'scripts/validate_yyp.ps1'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
