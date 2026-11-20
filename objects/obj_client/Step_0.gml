@@ -1,14 +1,16 @@
+/// Step Event: connect once the extension is ready, then poll every frame
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
 	//Correr de forma local
-    client = colyseus_client_create("ws://192.168.100.97:2567");
+    //client = colyseus_client_create("ws://192.168.100.97:2567");
 	//Correr desde el server en Azure
-	//client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
+	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
+//Recibe mensajes del servidor
 colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
-	#region //Login and sign-in
+	#region in-game	
 	
 	//Cuando acepta la cola y te tira a la partida
 	if (_type=="seat"){
@@ -54,7 +56,15 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	if (_type == "game_start") {
 		define_spawns()
 		instance_find(obj_player,0).move_enabled = true
-		var _item = instance_create_layer(global.spawn_lst[0].x,global.spawn_lst[0].y,"Instances",obj_item)
+		//var _item = instance_create_layer(global.spawn_lst[0].x,global.spawn_lst[0].y,"Instances",obj_item)
+		var _manager = instance_find(obj_game_mannager,0)
+		for(var _i=0;_i<array_length(global.spawn_lst);_i++){
+			var _item = choose("boots","shield","potion","star","bomb","magnet","resource","big_resource")
+			
+			var _factory = create_object(_item)
+			var _obj = instance_create_layer(global.spawn_lst[_i].x,global.spawn_lst[_i].y,"Instances",obj_item)
+			_obj.itemA = _factory.create_object();
+		}	
 	}
 	
 	if (_type == "game_end") {
@@ -112,8 +122,8 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	//Cuando se crea otro recurso dentro del juego
 	if (_type == "resource"){
 		var _resource = instance_create_depth(_data.x,_data.y,1,obj_square)
-		var _r = new resource(_data.id,_resource.id)
-		array_push(global.resources,_r)
+		//var _r = new resource(_data.id,_resource.id)
+		//array_push(global.resources,_r)
 	}
 	
 	//Elimina del juego actual un recurso
