@@ -21,7 +21,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $winDir = Join-Path $(Build.SourcesDirectory) "build\win"
+      $winDir = Join-Path $(Build.SourcesDirectory) "builds\win"
       $zipFiles = Get-ChildItem -Path $winDir -Filter "*.zip" -ErrorAction SilentlyContinue
 
       if (-not $zipFiles) {
