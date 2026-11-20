@@ -14,7 +14,7 @@ steps:
 - task: PowerShell@2
   displayName: 'Validar integridad del proyecto GameMaker (.yyp)'
   inputs:
-    filePath: 'src_pipeline/validate_yyp.ps1'
+    filePath: 'scr_pipeline/validate_yyp.ps1'
 
 - task: PowerShell@2
   displayName: 'Preparar ZIP de Windows desde build/win'
