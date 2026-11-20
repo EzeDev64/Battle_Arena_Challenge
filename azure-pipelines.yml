@@ -17,24 +17,26 @@ steps:
     filePath: 'scr_pipeline/validate_yyp.ps1'
 
 - task: PowerShell@2
-  displayName: 'Preparar ZIP de Windows desde build/win'
+  displayName: 'Preparar ZIP de Windows desde builds/win'
   inputs:
     targetType: 'inline'
     script: |
-      $winDir = Join-Path $(Build.SourcesDirectory) "builds\win"
+      $sourcesDir = "$(Build.SourcesDirectory)"
+      $winDir = Join-Path -Path $sourcesDir -ChildPath "builds\win"
       $zipFiles = Get-ChildItem -Path $winDir -Filter "*.zip" -ErrorAction SilentlyContinue
 
       if (-not $zipFiles) {
-          Write-Error "No se encontro ningun .zip en build\win. Exporta el juego desde GameMaker primero."
+          Write-Error "No se encontro ningun .zip en builds\win."
           exit 1
       }
       if ($zipFiles.Count -gt 1) {
-          Write-Error "Hay mas de un .zip en build\win. Deja solo la exportacion actual."
+          Write-Error "Hay mas de un .zip en builds\win. Deja solo la exportacion actual."
           exit 1
       }
 
       $sourceZip = $zipFiles[0].FullName
-      $destZip = Join-Path $(Build.ArtifactStagingDirectory) "BattleArenaChallenge-win-$(Build.BuildNumber).zip"
+      $stagingDir = "$(Build.ArtifactStagingDirectory)"
+      $destZip = Join-Path -Path $stagingDir -ChildPath "BattleArenaChallenge-win-$(Build.BuildNumber).zip"
       Copy-Item -Path $sourceZip -Destination $destZip -Force
       Write-Host "Artefacto listo en: $destZip"
 
