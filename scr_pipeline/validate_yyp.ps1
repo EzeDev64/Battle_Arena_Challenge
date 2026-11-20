@@ -49,5 +49,5 @@ if ($conflictMatches) {
     exit 1
 }
 
-Write-Host "`nVALIDACIÓN EXITOSA: Integridad del .yyp y recursos confirmada." -ForegroundColor Green
+Write-Host "`nVALIDACION EXITOSA: Integridad del .yyp y recursos confirmada." -ForegroundColor Green
 exit 0
