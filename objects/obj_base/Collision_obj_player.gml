@@ -3,8 +3,9 @@
  var _pos = 0
 
  with(obj_inventory){
-	 while (_pos < 5) {
+	 while (_pos < 4) {
 	    if (item_array[_pos][item_type] == item_resource) {
+			item_array[_pos][item_struct] = item_none;
 			item_array[_pos][item_amount] -= 1;
 			item_array[_pos][item_type] = item_none;
 			item_array[_pos][item_sprite] = -1;

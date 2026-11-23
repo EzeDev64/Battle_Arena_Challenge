@@ -1,6 +1,38 @@
+//Se encarga de conectarse a la red
+
+/// Create Event: nothing is connected yet 
+//Configuraciones del servidor
 client = 0;
 net_room = 0;
+room_lst = ["test_waiting_room","test_server_room"]
+
+//Variables para el inicio de sesión no def
+password = ""
+code = ""
+mail = ""
+
+#region multiplayer test
 user_names = []
+
+factories = {
+    boots:  new factory_boots(),
+    shield: new factory_shield(),
+    potion: new factory_potion(),
+    star:   new factory_star(),
+    bomb:   new factory_bomb(),
+    magnet: new factory_magnet(),
+	resource: new factory_resource(),
+	big_resource: new factory_Bigresource()
+};
+
+function create_object(_type){
+	if (!struct_exists(factories, _type)) {
+        show_error("Tipo de fábrica no válido: " + string(_type), true);
+        return undefined;
+    }
+	
+    return factories[$ _type];
+}
 
 #region Funciones de Login y Sign-in:
 //Iniciar sesión
@@ -44,7 +76,7 @@ function game_start(){
 //Si el jugador se mueve
 function user_move(_username,_x,_y){
 	if (colyseus_room_is_connected(net_room)) {
-		show_debug_message("Me estoy moviendo")
+		//show_debug_message("Me estoy moviendo")
 		colyseus_send(net_room, "move", {x: _x, y: _y,username: _username});
 	}
 }
