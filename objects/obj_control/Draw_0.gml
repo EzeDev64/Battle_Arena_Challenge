@@ -1,0 +1,11 @@
+draw_text(0,0,$"Control:")
+draw_text(0,15,$"Arriba {control_up}")
+draw_text(0,30,$"Abajo {control_down}")
+draw_text(0,45,$"Izquierda {control_left}")
+draw_text(0,60,$"Derecha {control_right}")
+
+draw_text(400,0,$"Teclado:")
+draw_text(400,15,$"Arriba {keypad_up}")
+draw_text(400,30,$"Abajo {keypad_down}")
+draw_text(400,45,$"Izquierda {keypad_left}")
+draw_text(400,60,$"Derecha {keypad_right}")
