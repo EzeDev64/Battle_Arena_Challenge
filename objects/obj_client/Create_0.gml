@@ -59,8 +59,34 @@ function mailcode(_gmail){
 function verification(_code,_gmail,_password){
 	colyseus_send(net_room, "verification", {code: _code,mail: _gmail,password: _password});
 }
+
+function play(_room){
+	var _options = "{ \"username\": \""+global.user+"\"}";
+	colyseus_room_leave(_room);
+	net_room = colyseus_client_join_or_create(client, "queue", _options);	
+}
+
+function cerrar_sesion(_room){
+	net_room = colyseus_client_join_or_create(client, room_get_name(_room), {});	
+}
+
+function globalRanking(_room){
+	var _options = "{ \"username\": \""+global.user+"\"}";
+	net_room = colyseus_client_join_or_create(client, room_get_name(_room), {});	
+}
+
 #endregion 
 
+#region misc
+/*Obtener datos del ranking
+function login(_username,_password){
+	if (colyseus_room_is_connected(net_room)) {
+		colyseus_send(net_room, "login", {username: _username, password: _password});
+	}
+}*/
+#endregion
+
+#region game
 function get_resource(){
 	if (colyseus_room_is_connected(net_room)) {
 		colyseus_send(net_room, "resource_adquiered",{score:obj_player.points});
@@ -80,3 +106,4 @@ function user_move(_username,_x,_y){
 		colyseus_send(net_room, "move", {x: _x, y: _y,username: _username});
 	}
 }
+#endregion

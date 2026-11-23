@@ -1,16 +1,16 @@
 /// Step Event: connect once the extension is ready, then poll every frame
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
-	//Correr de forma local
-    //client = colyseus_client_create("ws://192.168.100.97:2567");
+	//Correr de forma local ws
+    client = colyseus_client_create("ws://192.168.100.97:2567");
 	//Correr desde el server en Azure
-	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
+	//client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
 //Recibe mensajes del servidor
 colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
-	#region in-game	
+	#region login and sign in	
 	
 	//Cuando acepta la cola y te tira a la partida
 	if (_type=="seat"){
@@ -21,24 +21,12 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		net_room = colyseus_client_join_or_create(client, "Room1", _options)
 	}
 	
-	if (_type == "change_room") {
-		global.user = _data.username
-		colyseus_room_leave(_room);
-		actual_room = _data.rm
-		var _options = "{ \"username\": \""+global.user+"\"}";
-		net_room = colyseus_client_join_or_create(client, _data.rm, _options)
-		room_goto(Room1)
-	}
-	
 	if (_type=="login succesfully"){
 		show_message("Inicio de sesión exitoso")
 		show_debug_message("En cola, esperando una partida...")
 		global.user = _data.username
 		//global.user = "Eze"
-		var _options = "{ \"username\": \""+global.user+"\"}";
-		colyseus_room_leave(_room);
-		net_room = colyseus_client_join_or_create(client, "queue", _options);
-		
+		room_goto(Room_lobby)		
 	}
 	
 	//Al recibir el código para la verificación.
@@ -52,7 +40,7 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	}
 	#endregion
 	
-	#region //Game
+	#region Game
 	if (_type == "game_start") {
 		define_spawns()
 		instance_find(obj_player,0).move_enabled = true
@@ -132,7 +120,39 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		search(_data.id)
 	}
 	#endregion
+	
+	#region misc
+	//Obtener datos del ranking
+	if (_type=="global_ranking"){
+		//_data = json_parse(_data);
+		//var _raw_array = undefined;
+		
+		//global.globalRanking = _data.ranking	
+		var _raw = _data.ranking;
 
+		if (is_string(_raw) && _raw != "") {
+		    _raw = json_parse(_raw);
+		}
+
+		if (is_array(_raw)) {
+		    global.globalRanking = [];
+
+		    for (var i = 0; i < array_length(_raw); i++) {
+		        var _item = _raw[i];
+
+		        if (is_struct(_item)) {
+		            var _user = variable_struct_exists(_item, "username") ? string(_item.username) : "";
+		            var _pts  = variable_struct_exists(_item, "score")    ? real(_item.score)       : 0;
+
+		            array_push(global.globalRanking, {
+		                username: _user,
+		                score:    _pts
+		            });
+		        }
+		    }
+		}
+	}
+	#endregion
 }));
 
 /*
