@@ -1,16 +1,12 @@
-var _async_id = async_load[? "id"];
-var _status = async_load[? "status"];
-
-/*
-if (_status == 0) {
+if (async_load[? "status"] == 0 && async_load[? "http_status"] == 200) {
     var _result = async_load[? "result"];
-    show_debug_message("SE CONECTÓ ALGO!!!")
-}
-*/
+    show_debug_message(_result);
 
-if (async_load[? "status"] == 0) {
-	var _result = async_load[? "result"];
-	show_debug_message(_result)
     var _json = json_parse(_result);
-    show_debug_message("SE CONECTÓ ALGO!!!")
+    if (is_struct(_json)) {
+        control_up    = (_json[$ "up"]  ?? 0) == 1;
+        control_down  = (_json[$ "down"]   ?? 0) == 1;
+        control_left  = (_json[$ "left"]     ?? 0) == 1;
+        control_right = (_json[$ "right"] ?? 0) == 1;
+    }
 }
