@@ -2,9 +2,9 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
 	//Correr de forma local ws
-    client = colyseus_client_create("ws://192.168.100.97:2567");
+    //client = colyseus_client_create("ws://192.168.100.97:2567");
 	//Correr desde el server en Azure
-	//client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
+	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
@@ -38,7 +38,13 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		show_message("Contraseña cambiada")
 		instance_find(obj_IGU_mediator,0).notify(id,"volver");
 	}
+	
+	if (_type="servererror"){
+		show_message(_data.error)
+	}
+	
 	#endregion
+	
 	
 	#region Game
 	if (_type == "game_start") {
@@ -118,6 +124,15 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	if (_type == "delete_resource"){
 		show_debug_message("Resource eliminado")
 		search(_data.id)
+	}
+	
+	// Efecto que manda otro jugador (estrella, iman, bomba)
+	if (_type == "effect") {
+		var _e = is_string(_data) ? json_parse(_data) : _data;
+		if (_e.from != global.user && (_e.target == global.user || _e.target == "all")) {
+			var _datos = { value: _e.value, x: _e.x, y: _e.y, mina_id: _e.mina_id };
+			with (obj_player) apply_effect(_e.effect, _e.from, _datos);
+		}
 	}
 	#endregion
 	

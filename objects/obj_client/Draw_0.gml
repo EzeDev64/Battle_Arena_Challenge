@@ -1,1 +1,1 @@
-draw_text(0,0,room)
+//draw_text(0,0,room)

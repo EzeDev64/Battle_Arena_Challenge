@@ -106,4 +106,19 @@ function user_move(_username,_x,_y){
 		colyseus_send(net_room, "move", {x: _x, y: _y,username: _username});
 	}
 }
+
+// Manda un efecto a otro jugador. target = nombre del jugador, o "all" para todos.
+function send_effect(_target, _effect, _value = 0, _x = 0, _y = 0, _mina = ""){
+	if (colyseus_room_is_connected(net_room)) {
+		colyseus_send(net_room, "effect", {
+			target: _target,
+			from: global.user,
+			effect: _effect,
+			value: _value,
+			x: _x,
+			y: _y,
+			mina_id: _mina
+		});
+	}
+}
 #endregion

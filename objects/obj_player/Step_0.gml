@@ -32,3 +32,12 @@ if (positionX != 0 || positionY != 0) {
 }
 
 //user_name = global.user.username;
+
+// Estrella: aturde al rival que toque (el rival decide si le afecta)
+if (current_time < star_until && current_time >= star_cooldown) {
+    var _rival = instance_place(x, y, obj_npc);
+    if (_rival != noone) {
+        star_cooldown = current_time + 1500;
+        client.send_effect(_rival.username, "star_stun");
+    }
+}

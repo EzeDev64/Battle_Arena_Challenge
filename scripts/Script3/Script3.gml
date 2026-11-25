@@ -59,6 +59,8 @@ function obj_boots(_type, _score= 0) : IAction() constructor {
     points = _score
 	type = _type
     action = function() {
+		//Botas:velocidad extra por 5 segundos
+		obj_player.boost_until = current_time + 5000;
         show_debug_message("Botas");
     };
 }
@@ -67,6 +69,8 @@ function obj_shield(_type, _score= 0) : IAction() constructor {
     points = _score
 	type = _type
     action = function() {
+		// Escudo: inmune a aturdimientos, minas y robos por 6 segundos
+        obj_player.shield_until = current_time + 6000;
         show_debug_message("Shield");
     };
 }
@@ -75,6 +79,8 @@ function obj_potion(_type,_score= 0) : IAction() constructor {
     points = _score   
 	type = _type
 	action = function() {
+		// Pocion: los recursos que entregues valen el doble por 10 segundos
+        obj_player.double_until = current_time + 10000;
         show_debug_message("Poción");
     };
 }
@@ -83,6 +89,8 @@ function obj_star(_type, _score= 0) : IAction() constructor {
     points = _score
 	type = _type
 	action = function() {
+		// Estrella: por 8 segundos, el rival que toques queda aturdido
+        obj_player.star_until = current_time + 8000;
         show_debug_message("Star");
     };
 }
@@ -91,6 +99,8 @@ function obj_bomb(_type,_score= 0) : IAction() constructor {
 	points = _score
 	type = _type
 	action = function() {
+		// Bomba: deja una mina terrestre en el suelo
+        obj_player.place_mine();
         show_debug_message("Bomba");
     };
 }
@@ -99,6 +109,8 @@ function obj_magnet(_type,_score= 0) : IAction() constructor {
     points = _score
 	type = _type
 	action = function() {
+		// Iman: roba el recurso del rival mas cercano
+        obj_player.use_magnet();
         show_debug_message("Magnet");
     };
 }

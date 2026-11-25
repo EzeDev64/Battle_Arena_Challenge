@@ -33,8 +33,8 @@ function update_sprite(){
 		case item_escudo: sprite_index = spr_escudo;   break;
 		case item_potion: sprite_index = spr_pocion; break;
 		case item_star: sprite_index = spr_estrella; break;
-		case item_bomb: sprite_index = spr_suriken;   break;
-		case item_magnet: sprite_index = spr_suriken;   break;
+		case item_bomb: sprite_index = spr_bomba;   break;
+		case item_magnet: sprite_index = spr_iman;   break;
 		case item_resource: sprite_index = spr_resource; break;
 	}
 	
