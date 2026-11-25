@@ -1,3 +1,5 @@
+draw_set_font(ft_game)
+
 var azul = make_color_rgb(40, 130, 220);
 
 draw_set_halign(fa_left);
@@ -29,6 +31,7 @@ while (string_width(texto) > maxw) texto = string_delete(texto, 1, 1);
 // Cursor parpadeante
 if (focus && ((current_time div 500) mod 2 == 0)) texto += "|";
 
+
 // Se dibuja con draw_text(x, y, ...) desplazado al interior del cuadro
 matrix_set(matrix_world, matrix_build(16, sprite_height / 2, 0, 0, 0, 0, 1, 1, 1));
 draw_set_halign(fa_left);
@@ -40,4 +43,5 @@ matrix_set(matrix_world, matrix_build_identity());
 // Restaurar alineacion
 draw_set_valign(fa_top);
 draw_set_color(c_white);
+
 

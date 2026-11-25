@@ -1,1 +1,1 @@
-mediator = instance_find(obj_IGU_mediator,0)
+mediator = instance_find(object_ref,0)

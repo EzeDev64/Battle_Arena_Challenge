@@ -1,4 +1,9 @@
+
 if (item_array[item_pos][item_type] != item_none) {
+	if (item_array[item_pos][item_type] == item_resource) {
+		return
+    }
+	
     var _type = item_array[item_pos][item_type];
 
     global.next_item = _type;
@@ -6,9 +11,12 @@ if (item_array[item_pos][item_type] != item_none) {
     global.next_scale_y = item_array[item_pos][item_scale_y];
 
     item_array[item_pos][item_amount] -= 1;
-    var _inst = instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_item);
-
+    //var _inst = instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_item);
+	item_array[item_pos][item_struct].action()
+	
+	
     if (item_array[item_pos][item_amount] < 1) {
+		item_array[item_pos][item_struct] = item_none
         item_array[item_pos][item_type] = item_none;
         item_array[item_pos][item_sprite] = -1;
         item_array[item_pos][item_scale_x] = 1;

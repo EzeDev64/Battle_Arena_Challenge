@@ -1,3 +1,4 @@
+draw_set_font(ft_game)
 var azul   = make_color_rgb(40, 130, 220);
 var azul_h = make_color_rgb(75, 160, 245);
 var hover  = position_meeting(mouse_x, mouse_y, id);
@@ -39,4 +40,3 @@ matrix_set(matrix_world, matrix_build_identity());
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-

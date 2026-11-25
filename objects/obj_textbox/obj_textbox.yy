@@ -31,6 +31,7 @@
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"class","filters":[],"listItems":[],"multiselect":false,"name":"class","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
     {"$GMObjectProperty":"v2","%Name":"title","filters":[],"listItems":[],"multiselect":false,"name":"title","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
+    {"$GMObjectProperty":"v2","%Name":"object_ref","filters":[],"listItems":[],"multiselect":false,"name":"object_ref","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_IGU_mediator","path":"objects/obj_IGU_mediator/obj_IGU_mediator.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_IGU_mediator","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

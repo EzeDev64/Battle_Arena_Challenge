@@ -15,7 +15,7 @@ var _slot_x0 = _x + 13 * _s;
 var _slot_y0 = _y + 13 * _s;
 
 // 2. Ítems y cantidades
-for (var i = 0; i < 5; i += 1) {
+for (var i = 0; i < 4; i += 1) {
     var _slot_x = _slot_x0 + i * _step;
     var _slot_y = _slot_y0;
 

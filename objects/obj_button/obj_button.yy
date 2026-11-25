@@ -30,6 +30,7 @@
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"action","filters":[],"listItems":[],"multiselect":false,"name":"action","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
     {"$GMObjectProperty":"v2","%Name":"text","filters":[],"listItems":[],"multiselect":false,"name":"text","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
+    {"$GMObjectProperty":"v2","%Name":"object_ref","filters":[],"listItems":[],"multiselect":false,"name":"object_ref","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_IGU_mediator","path":"objects/obj_IGU_mediator/obj_IGU_mediator.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_IGU_mediator","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
