@@ -95,7 +95,7 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		if (_data.username != global.user){
 			var _npc = undefined
 			for (i=0;i<array_length(user_names);i++){
-				if (user_names[i].username==_data.username){
+				if (user_names[i]==_data.username){
 					_npc = array_get(user_names,i)
 					i = array_length(user_names)
 				}
@@ -115,7 +115,7 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 	
 	//Cuando se crea otro recurso dentro del juego
 	if (_type == "resource"){
-		var _resource = instance_create_depth(_data.x,_data.y,1,obj_square)
+		//var _resource = instance_create_depth(_data.x,_data.y,1,obj_square)
 		//var _r = new resource(_data.id,_resource.id)
 		//array_push(global.resources,_r)
 	}

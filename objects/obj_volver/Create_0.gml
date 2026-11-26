@@ -1,0 +1,1 @@
+client = instance_find(obj_client,0)
