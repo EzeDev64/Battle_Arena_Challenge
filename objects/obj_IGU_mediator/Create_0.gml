@@ -63,6 +63,11 @@ function notify(_compID= undefined, _event="", _data={}){
 	if _event == "login"{	
 		var _username = get_data("usernameA")
 		var _password = get_data("passwordA")
+		if string_trim(_username) == "" or string_trim(_password){
+			show_message("Complete los campos de texto")	
+			return
+		}
+		
 		//show_message($"Loggeando {_username} {_password}")	
 		client.login(_username,_password)
 		//Hacer más cosas
@@ -85,6 +90,10 @@ function notify(_compID= undefined, _event="", _data={}){
 	
 	if _event == "enviarCode"{
 		var _correo = get_data("correoB")
+		if string_trim(_correo) == ""{
+			show_message("Complete los campos de texto")	
+			return
+		}
 		//show_message($"Enviar código {_correo}")	
 		client.mailcode(_correo)
 		return
@@ -94,6 +103,10 @@ function notify(_compID= undefined, _event="", _data={}){
 		var _code = get_data("codigo")
 		var _correo = get_data("correoB")
 		var _password = get_data("passwordC")
+		if string_trim(_code) == "" or string_trim(_password) or string_trim(_correo){
+			show_message("Complete los campos de texto")	
+			return
+		}		
 		//show_message($"VerificandoCodigo {_code}")
 		client.verification(_code,_correo,_password)
 		return
@@ -103,6 +116,10 @@ function notify(_compID= undefined, _event="", _data={}){
 		var _username = get_data("usernameB")
 		var _password = get_data("passwordB")
 		var _correo = get_data("correoA")
+		if string_trim(_username) == "" or string_trim(_password) or string_trim(_correo){
+			show_message("Complete los campos de texto")	
+			return
+		}
 		//show_message($"Creando cuenta {_username} {_password} {_correo}")	
 		client.sign_in(_username,_password,_correo)
 		return

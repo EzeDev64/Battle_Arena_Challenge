@@ -98,7 +98,7 @@ draw_set_valign(fa_middle);
     draw_set_halign(fa_left);
     draw_text(cx - 250, 550, global.user + " (TU)");
     draw_set_halign(fa_right);
-    draw_text(cx + 300, 550, string(mi_puntos));
+    draw_text(cx + 300, 550, string(global.player_data.score));
     //draw_text(cx + 300, 550, string(mi_victorias));
 
     //dibujar_boton(r_atras, "VOLVER AL LOBBY", 1);

@@ -38,6 +38,8 @@ r_atras   = [cx - 150, 590, cx + 150, 638];
 r_g_lobby = [cx - 280, 582, cx - 20, 630];
 r_g_otra  = [cx + 20, 582, cx + 280, 630];
 
+client.get_player_data(global.user)
+
 function notify(_compID= undefined, _event="", _data={}){
 	if _compID==undefined{
 		show_debug_message("Ningun evento fue enviado")

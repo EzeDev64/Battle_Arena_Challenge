@@ -126,8 +126,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room_login","path":"rooms/Room_login/Room_login.yy",},},
-    {"roomId":{"name":"Room_test_control","path":"rooms/Room_test_control/Room_test_control.yy",},},
     {"roomId":{"name":"Room_lobby","path":"rooms/Room_lobby/Room_lobby.yy",},},
+    {"roomId":{"name":"Room_test_control","path":"rooms/Room_test_control/Room_test_control.yy",},},
     {"roomId":{"name":"Room_globalRanking","path":"rooms/Room_globalRanking/Room_globalRanking.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"children":[
