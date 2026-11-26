@@ -2,9 +2,9 @@
 if (client == 0) {
     if (!colyseus_is_ready()) exit;
 	//Correr de forma local ws
-    //client = colyseus_client_create("ws://192.168.100.97:2567");
+    client = colyseus_client_create("ws://192.168.100.97:2567");
 	//Correr desde el server en Azure
-	client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
+	//client = colyseus_client_create("wss://game-server.bravecliff-735637dc.brazilsouth.azurecontainerapps.io");
     net_room = colyseus_client_join_or_create(client, room_get_name(room), {});
 }
 
@@ -43,8 +43,7 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		show_message(_data.error)
 	}
 	
-	#endregion
-	
+	#endregion	
 	
 	#region Game
 	if (_type == "game_start") {
@@ -167,6 +166,12 @@ colyseus_on_message(net_room, method(id, function(_room, _type, _data) {
 		    }
 		}
 	}
+	
+	if (_type=="set_player_data"){
+		show_debug_message(_data)
+		global.player_data = _data
+	}
+	
 	#endregion
 }));
 

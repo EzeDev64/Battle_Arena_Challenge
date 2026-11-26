@@ -58,7 +58,7 @@ function notify(_compID= undefined, _event="", _data={}){
 	}
 	
 	if _event  == "close"{
-		colyseus_room_leave(room);
+		colyseus_room_leave("Room_globalRanking");
 		room_goto(Room_lobby)
 		return
 	}

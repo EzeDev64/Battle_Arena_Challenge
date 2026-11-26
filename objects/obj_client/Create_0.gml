@@ -84,6 +84,15 @@ function login(_username,_password){
 		colyseus_send(net_room, "login", {username: _username, password: _password});
 	}
 }*/
+
+function get_player_data(_username){
+	colyseus_send(net_room,"get_stats" , {username: _username});
+}
+
+function change_username(_new_username){
+	colyseus_send(net_room,"change_username" , {username: global.user,newname: _new_username});
+	global.user = _new_username
+}
 #endregion
 
 #region game
